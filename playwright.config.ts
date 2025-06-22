@@ -19,7 +19,7 @@ export default defineConfig({
     ],
   ],
   use: {
-    video: "retain-on-failure",
+    video: "retry-with-video",
     screenshot: "on-first-failure",
   },
 });
