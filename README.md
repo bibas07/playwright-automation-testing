@@ -23,8 +23,8 @@ npm install
 Running Tests
 UI Tests
 To run the UI tests (form and table operations):
-npx playwright test uiTests/formTests.js
-npx playwright test uiTests/tableTests.js
+npx playwright test uiTests/formTests.spec.ts
+npx playwright test uiTests/tableTests.spec.ts
 
 API Tests
 To run the API tests (books API):
