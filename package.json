@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:ci":"npx playwright test",
+    "test:ui":"npx playwright test --ui",
+    "test:web:ui":"npm run test:ui tests/uiTests",
+    "test:api":"npm run test:ci tests/apiTests"
   },
   "keywords": [],
   "author": "",

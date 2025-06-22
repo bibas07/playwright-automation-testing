@@ -1,5 +1,5 @@
 import test from "playwright/test";
-import { FormHelper, FormProps } from "../helpers/form.helper";
+import { FormHelper } from "../../helpers/form.helper";
 
 test.describe("Form", async () => {
   const FormData: FormProps = {

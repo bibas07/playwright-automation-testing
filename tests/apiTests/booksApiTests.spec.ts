@@ -1,7 +1,5 @@
-// api.test.js
-
 import test, { expect } from "playwright/test";
-import { ApiHelper } from "../helpers/booksApi.helper";
+import { ApiHelper } from "../../helpers/booksApi.helper";
 
 function generateRandomISBN() {
   const prefix = "978";
