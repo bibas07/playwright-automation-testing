@@ -63,6 +63,19 @@ const FORM_SCHEMA = {
   },
 };
 
+const DUMMPY_DATA: FormProps = {
+  firstName: "John",
+  lastName: "Doe",
+  userEmail: "hello@gmail.com",
+  gender: "Male",
+  userNumber: "9812312323",
+  // dateOfBirthInput:''
+  subjectsInput: "Social Studies",
+  hobbies: "Sports",
+  pictire: true,
+  "Current Address": "USA",
+};
+
 export class FormHelper {
   protected readonly page: Page;
   private readonly formHeading: Locator;
@@ -313,10 +326,38 @@ export class FormHelper {
     await expect(modal).not.toBeVisible();
   }
 
-  //   private async checkInputError() {}
-  //   private async emptyFormSubmit() {}
-  //   private async emptyFirstName() {}
-  //   private async emptyLastName() {}
-  //   private async emptyGender() {}
-  //   private async emptyMobileNumber() {}
+  private async checkAllInputError(id: string | string[]) {
+    if (!Array.isArray(id)) return [id];
+
+    for (let input of id) {
+      const selector = `#${input}.form-control`;
+      const isInvalid = await this.page.$eval(selector, (el) =>
+        el.matches(":invalid")
+      );
+
+      expect(isInvalid).toBe(true);
+    }
+  }
+
+  public async emptyFormSubmit() {
+    await this.formSubmit();
+    await this.checkAllInputError(["firstName", "lastName", "userNumber"]);
+  }
+
+  public async emptyFirstName() {
+    await this.fillFormInformation(FORM_SCHEMA, DUMMPY_DATA, ["firstName"]);
+    await this.formSubmit();
+    await this.checkAllInputError(["firstName"]);
+  }
+
+  public async emptyLastName() {
+    await this.fillFormInformation(FORM_SCHEMA, DUMMPY_DATA, ["lastName"]);
+    await this.formSubmit();
+    await this.checkAllInputError(["lastName"]);
+  }
+  public async emptyMobileNumber() {
+    await this.fillFormInformation(FORM_SCHEMA, DUMMPY_DATA, ["userNumber"]);
+    await this.formSubmit();
+    await this.checkAllInputError(["userNumber"]);
+  }
 }

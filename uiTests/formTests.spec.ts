@@ -29,4 +29,32 @@ test.describe("Form", async () => {
     await formHelper.submitStudentRegistrationForm(FormData);
     await formHelper.verifyFormModalTitle();
   });
+
+  test("empty form submission", async ({ page }) => {
+    const formHelper = new FormHelper(page);
+
+    await formHelper.init();
+    await formHelper.emptyFormSubmit();
+  });
+
+  test("empty firstname form submission", async ({ page }) => {
+    const formHelper = new FormHelper(page);
+
+    await formHelper.init();
+    await formHelper.emptyFirstName();
+  });
+
+  test("empty lastname form submission", async ({ page }) => {
+    const formHelper = new FormHelper(page);
+
+    await formHelper.init();
+    await formHelper.emptyLastName();
+  });
+
+  test("empty mobile number form submission", async ({ page }) => {
+    const formHelper = new FormHelper(page);
+
+    await formHelper.init();
+    await formHelper.emptyMobileNumber();
+  });
 });
