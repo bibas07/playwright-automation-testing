@@ -4,20 +4,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:ci":"npx playwright test",
-    "test:ui":"npx playwright test --ui",
-    "test:web:ui":"npm run test:ui tests/uiTests",
-    "test:api":"npm run test:ci tests/apiTests"
+    "test:ci": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:web:ui": "npm run test:ui tests/uiTests",
+    "test:web:ci": "npm run test:ci tests/uiTests",
+    "test:api": "npm run test:ci tests/apiTests",
+    "test:report":"allure serve allure-results"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@playwright/test": "^1.53.1",
     "playwright": "^1.53.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^24.0.3",
+    "allure-playwright": "^3.3.0",
     "node-fetch": "^3.3.2"
   }
 }
