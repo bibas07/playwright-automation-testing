@@ -1,10 +1,10 @@
 import { Locator, Page } from "playwright";
 import { expect } from "playwright/test";
 import { URL_ROUTES } from "../core/Constants/api.constants";
-import { DemoFormHelper } from "../core/helpers/form.helper";
 import { step } from "../core/Utils/common.utils";
 import { DemoModalHelper } from "../core/Helpers/modal.helper";
-import { BaseHelper } from "../core/helpers/base.helper";
+import { DemoFormHelper } from "../core/Helpers/form.helper";
+import { BaseHelper } from "../core/Helpers/base.helper";
 
 const FORM_SCHEMA = {
   firstName: {

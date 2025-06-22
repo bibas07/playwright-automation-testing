@@ -1,21 +1,21 @@
 import test from "playwright/test";
 import { TableHelper } from "../../helpers/table.helper";
+import { generateRandomNumber } from "../../core/Utils/common.utils";
 
-const randomNumber = Math.floor(Math.random() * 10000000);
 test.describe("Table", async () => {
   const TABLE_DATA: TableProps = {
-    firstName: `Anne_${randomNumber}`,
+    firstName: `Anne_${generateRandomNumber()}`,
     lastName: "Marie",
-    userEmail: `testEmail${randomNumber}@gmail.com`,
+    userEmail: `testEmail${generateRandomNumber()}@gmail.com`,
     age: "23",
     salary: "12312",
     department: "Sales",
   };
 
   const EDITED_TABLE_DATA: TableProps = {
-    firstName: `Post_${randomNumber}`,
+    firstName: `Post_${generateRandomNumber()}`,
     lastName: "Malone",
-    userEmail: `editedEmail${randomNumber}@gmail.com`,
+    userEmail: `editedEmail${generateRandomNumber()}@gmail.com`,
     age: "21",
     salary: "123",
     department: "Marketing",

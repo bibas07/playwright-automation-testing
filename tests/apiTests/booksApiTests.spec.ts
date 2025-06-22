@@ -1,23 +1,13 @@
 import test, { expect } from "playwright/test";
 import { ApiHelper } from "../../helpers/booksApi.helper";
-
-function generateRandomISBN() {
-  const prefix = "978";
-  const group = Math.floor(Math.random() * 10); // 0-9
-  const publisher = Math.floor(Math.random() * 90 + 10); // 10-99 (2 digits)
-  const title = Math.floor(Math.random() * 9000000 + 1000000); // 7 digits
-  const checkDigit = Math.floor(Math.random() * 10); // 0-9
-
-  return `${prefix}-${group}-${publisher}-${title}-${checkDigit}`;
-}
-
-function generateRandomUserId() {
-  return Math.floor(Math.random() * 10000000);
-}
+import {
+  generateRandomISBN,
+  generateRandomNumber,
+} from "../../core/Utils/common.utils";
 
 const api = new ApiHelper();
 const newBook = {
-  userId: generateRandomUserId(),
+  userId: generateRandomNumber(),
   collectionOfIsbns: [{ isbn: generateRandomISBN() }],
 };
 const isbn = "978-1-23-456789-0";
