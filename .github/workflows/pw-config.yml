@@ -1,7 +1,7 @@
 name: Demo UI Tests
 on:
   push:
-    branches: ci-setup
+    branches: main
 jobs:
   demo-test:
     timeout-minutes: 60
