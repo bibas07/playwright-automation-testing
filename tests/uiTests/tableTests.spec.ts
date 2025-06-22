@@ -1,5 +1,5 @@
 import test from "playwright/test";
-import { TableHelper, TableProps } from "../helpers/table.helper";
+import { TableHelper } from "../../helpers/table.helper";
 
 const randomNumber = Math.floor(Math.random() * 10000000);
 test.describe("Table", async () => {
