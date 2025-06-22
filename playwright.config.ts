@@ -2,6 +2,7 @@ import { defineConfig } from "playwright/test";
 import * as os from "node:os";
 
 export default defineConfig({
+  timeout: 1 * 60 * 1000,
   retries: process.env.CI ? 2 : 1,
   workers: 2,
   reporter: [
