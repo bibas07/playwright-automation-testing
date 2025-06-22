@@ -33,7 +33,7 @@ test.describe("Table", async () => {
 
     await tableHelper.init();
     await tableHelper.submitTableForm(TABLE_DATA);
-    await tableHelper.checkTableByFirstName(TABLE_DATA.userEmail);
+    await tableHelper.checkTableByFirstName(TABLE_DATA.firstName);
   });
 
   test("View a record from the table", async ({ page }) => {
@@ -54,7 +54,7 @@ test.describe("Table", async () => {
 
     await tableHelper.init();
     await tableHelper.editTable(EDITED_TABLE_DATA);
-    await tableHelper.checkTableByFirstName(EDITED_TABLE_DATA.userEmail);
+    await tableHelper.checkTableByFirstName(EDITED_TABLE_DATA.firstName);
   });
 
   test("Delete a record from the table", async ({ page }) => {
