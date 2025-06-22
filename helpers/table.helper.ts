@@ -2,6 +2,7 @@ import { Locator, Page } from "playwright";
 import { FormHelper } from "./form.helper";
 import { URL_ROUTES } from "../core/Constants/api.constants";
 import { expect } from "playwright/test";
+import { step } from "../core/Utils/common.utils";
 
 export interface TableProps {
   firstName: string;
@@ -51,16 +52,18 @@ export class TableHelper extends FormHelper {
     this.tableHeading = page.getByRole("heading", { name: "Web Tables" });
   }
 
+  @step("navigate to table")
   public async init() {
     await this.page.goto(URL_ROUTES.TABLE);
   }
 
+  @step("Is table heading visible")
   public async isTableHeadingVisible() {
     const isVisible = await this.tableHeading.isVisible();
     expect(isVisible).toBe(true);
   }
 
-  public async clickAddTableButton() {
+  private async clickAddTableButton() {
     const locateButton = this.page.getByRole("button", { name: "Add" });
     await locateButton.click();
   }
@@ -72,6 +75,7 @@ export class TableHelper extends FormHelper {
     await this.closeModal();
   }
 
+  @step("submit table form")
   public async submitTableForm(tableDetails: TableProps) {
     await this.clickAddTableButton();
     await this.fillFormInformation(TABLE_SCHEMA, tableDetails);
@@ -173,30 +177,37 @@ export class TableHelper extends FormHelper {
     await expect(row).toBeVisible();
   }
 
+  @step("check table by first name")
   public async checkTableByFirstName(query: string) {
     await this.checkTableInList(query, "First Name");
   }
 
+  @step("check table by last name")
   public async checkTableByLastName(query: string) {
     await this.checkTableInList(query, "Last Name");
   }
 
+  @step("check table by age")
   public async checkTableByAge(query: string) {
     await this.checkTableInList(query, "Age");
   }
 
+  @step("check table by email")
   public async checkTableByEmail(query: string) {
     await this.checkTableInList(query, "Email");
   }
 
+  @step("check table by salary")
   public async checkTableBySalary(query: string) {
     await this.checkTableInList(query, "Salary");
   }
 
+  @step("check table by department")
   public async checkTableByDepartment(query: string) {
     await this.checkTableInList(query, "Department");
   }
 
+  @step("edit table form")
   public async editTable(tablesData: TableProps) {
     const row = await this.getFirstTableRow();
     await this.openEditActionForm(row);
@@ -204,6 +215,7 @@ export class TableHelper extends FormHelper {
     await this.formSubmit();
   }
 
+  @step("delete row")
   public async deleteRowFromListing() {
     const row = await this.getFirstTableRow();
     const cellText = await this.getCellText(row, "First Name");

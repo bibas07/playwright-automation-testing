@@ -90,6 +90,7 @@ export class FormHelper {
     await this.page.goto(URL_ROUTES.FORM);
   }
 
+  @step("check form heading visible")
   public async isFormHeadingVisible() {
     const isVisible = await this.formHeading.isVisible();
     expect(isVisible).toBe(true);
@@ -339,22 +340,27 @@ export class FormHelper {
     }
   }
 
+  @step("empty form submit")
   public async emptyFormSubmit() {
     await this.formSubmit();
     await this.checkAllInputError(["firstName", "lastName", "userNumber"]);
   }
 
+  @step("empty first name submission")
   public async emptyFirstName() {
     await this.fillFormInformation(FORM_SCHEMA, DUMMPY_DATA, ["firstName"]);
     await this.formSubmit();
     await this.checkAllInputError(["firstName"]);
   }
 
+  @step("empty last name submission")
   public async emptyLastName() {
     await this.fillFormInformation(FORM_SCHEMA, DUMMPY_DATA, ["lastName"]);
     await this.formSubmit();
     await this.checkAllInputError(["lastName"]);
   }
+
+  @step("empty mobile number submission")
   public async emptyMobileNumber() {
     await this.fillFormInformation(FORM_SCHEMA, DUMMPY_DATA, ["userNumber"]);
     await this.formSubmit();
