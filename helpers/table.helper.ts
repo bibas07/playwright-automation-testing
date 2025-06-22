@@ -3,9 +3,9 @@ import { URL_ROUTES } from "../core/Constants/api.constants";
 import { expect } from "playwright/test";
 import { step } from "../core/Utils/common.utils";
 import { DemoModalHelper } from "../core/Helpers/modal.helper";
-import { DemoFormHelper } from "../core/helpers/form.helper";
-import { BaseHelper } from "../core/helpers/base.helper";
-import { DemoListingHelper } from "../core/helpers/listing.helper";
+import { BaseHelper } from "../core/Helpers/base.helper";
+import { DemoFormHelper } from "../core/Helpers/form.helper";
+import { DemoListingHelper } from "../core/Helpers/listing.helper";
 
 const TABLE_SCHEMA = {
   firstName: {

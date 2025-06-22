@@ -46,3 +46,18 @@ export function step(stepName?: string) {
     };
   };
 }
+
+export function generateRandomISBN() {
+  const prefix = "978";
+  const group = Math.floor(Math.random() * 10); // 0-9
+  const publisher = Math.floor(Math.random() * 90 + 10); // 10-99 (2 digits)
+  const title = Math.floor(Math.random() * 9000000 + 1000000); // 7 digits
+  const checkDigit = Math.floor(Math.random() * 10); // 0-9
+
+  return `${prefix}-${group}-${publisher}-${title}-${checkDigit}`;
+}
+
+export function generateRandomNumber() {
+  const randomNumber = Math.floor(Math.random() * 10000000);
+  return randomNumber;
+}
