@@ -28,7 +28,7 @@ npx playwright test uiTests/tableTests.spec.ts
 
 API Tests
 To run the API tests (books API):
-npx playwright test apiTests/booksApiTests.js
+npx playwright test apiTests/booksApiTests.spec.ts
 
 Notes
 Ensure your environment has the required dependencies installed.
