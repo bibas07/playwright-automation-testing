@@ -16,4 +16,8 @@ export default defineConfig({
       },
     ],
   ],
+  use: {
+    video: "retain-on-failure",
+    screenshot: "on-first-failure",
+  },
 });
